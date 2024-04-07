@@ -14,7 +14,7 @@ const AuthLayout = () => {
           </section>
 
           <img
-            src="/clonegram/assets/images/side-img.png"
+            src={process.env.REACT_APP_URI + "/assets/images/side-img.png"}
             alt="logo"
             className="hidden xl:block h-screen w-1/2 object-cover bg-no-repeat"
           />
