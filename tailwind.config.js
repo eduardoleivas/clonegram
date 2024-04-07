@@ -20,27 +20,32 @@ module.exports = {
     },
     extend: {
       colors: {
-        'primary-500': '#877EFF',
-        'primary-600': '#5D5FEF',
+        'primary-500': '#29B4B9',
+        'primary-600': '#248D96',
         'secondary-500': '#FFB620',
-        'off-white': '#D0DFFF',
+        'off-white': '#D0FFFE',
         'red': '#FF5A5A',
         'dark-1': '#000000',
-        'dark-2': '#09090A',
-        'dark-3': '#101012',
-        'dark-4': '#1F1F22',
+        'dark-2': '#090A0A',
+        'dark-3': '#101212',
+        'dark-4': '#1E2121',
         'light-1': '#FFFFFF',
-        'light-2': '#EFEFEF',
-        'light-3': '#7878A3',
-        'light-4': '#5C5C7B',
+        'light-2': '#EFFCFC',
+        'light-3': '#B3EEED',
+        'light-4': '#7FE1E1',
       },
       screens: {
         'xs': '480px',
       
       },
       width: {
+        '100': '20rem',
+        '350': '350px',
         '420': '420px',
         '465': '465px',
+      },
+      height: {
+        '100': '20rem',
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
