@@ -14,7 +14,7 @@ const AuthLayout = () => {
           </section>
 
           <img
-            src={import.meta.env.VITE_REACT_APP_URI + "/assets/images/side-img.png"}
+            src="/clonegram/assets/images/side-img.png"
             alt="sidebar"
             className="hidden xl:block h-screen w-1/2 object-cover bg-no-repeat"
           />

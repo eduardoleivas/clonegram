@@ -28,7 +28,7 @@ const SigninForm = () => {
   return (
     <Form {...form} >
       <div className="flex flex-center flex-1 flex-col 2xl:w-420 2xl:leading-2 sm:w-350 sm:leading-none">
-        <img src="/assets/images/logo1.svg" alt="logo"/>
+        <img src="/clonegram/assets/images/logo1.svg" alt="logo"/>
         <h2 className="h3-bold 2xl:pt-5 sm:pt-3">Sign in to your Account</h2>
         <p className="text-light-3 small-medium md:base-regular mt-2">Welcome back to Clonegram</p>
       
