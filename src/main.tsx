@@ -5,7 +5,7 @@ import App from './App';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <HashRouter basename={import.meta.env.VITE_REACT_APP_URI}>
+    <HashRouter basename="/clonegram">
       <App />
     </HashRouter>
   </React.StrictMode>
