@@ -14,8 +14,8 @@ const AuthLayout = () => {
           </section>
 
           <img
-            src={process.env.REACT_APP_URI + "/assets/images/side-img.png"}
-            alt="logo"
+            src={import.meta.env.VITE_REACT_APP_URI + "/assets/images/side-img.png"}
+            alt="sidebar"
             className="hidden xl:block h-screen w-1/2 object-cover bg-no-repeat"
           />
         </>
