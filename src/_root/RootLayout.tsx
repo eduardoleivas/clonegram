@@ -1,8 +1,6 @@
-import { Navigate } from "react-router-dom";
-
 const RootLayout = () => {
   return (
-    <Navigate to="/sign-up" />
+    <div>RootLayout</div>
   )
 }
 
