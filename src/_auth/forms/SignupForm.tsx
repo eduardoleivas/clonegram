@@ -33,16 +33,6 @@ const SignupForm = () => {
   })
  
   async function onSubmit(values: z.infer<typeof SignupValidation>) {
-
-    console.log(import.meta.env.VITE_APPWRITE_URL);
-    console.log(import.meta.env.VITE_APPWRITE_PROJECT_ID);
-    console.log(import.meta.env.VITE_APPWRITE_STORAGE_ID);
-    console.log(import.meta.env.VITE_APPWRITE_DATABASE_ID);
-    console.log(import.meta.env.VITE_APPWRITE_COLLECTION_USER_ID);
-    console.log(import.meta.env.VITE_APPWRITE_COLLECTION_POST_ID);
-    console.log(import.meta.env.VITE_APPWRITE_COLLECTION_LIKE_ID);
-    console.log(import.meta.env.VITE_APPWRITE_COLLECTION_COMM_ID);
-
     const newUser = await createUserAccount(values);
     if(!newUser) {
       return toast({
