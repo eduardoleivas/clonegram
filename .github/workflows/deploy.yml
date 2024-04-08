@@ -24,6 +24,15 @@ jobs:
 
       - name: Build project
         run: npm run build
+        env:
+          VITE_APPWRITE_URL: ${{ secrets.VITE_APPWRITE_URL }}
+          VITE_APPWRITE_PROJECT_ID: ${{ secrets.VITE_APPWRITE_PROJECT_ID }}
+          VITE_APPWRITE_STORAGE_ID: ${{ secrets.VITE_APPWRITE_STORAGE_ID }}
+          VITE_APPWRITE_DATABASE_ID: ${{ secrets.VITE_APPWRITE_DATABASE_ID }}
+          VITE_APPWRITE_COLLECTION_USER_ID: ${{ secrets.VITE_APPWRITE_COLLECTION_USER_ID }}
+          VITE_APPWRITE_COLLECTION_POST_ID: ${{ secrets.VITE_APPWRITE_COLLECTION_POST_ID }}
+          VITE_APPWRITE_COLLECTION_LIKE_ID: ${{ secrets.VITE_APPWRITE_COLLECTION_LIKE_ID }}
+          VITE_APPWRITE_COLLECTION_COMM_ID: ${{ secrets.VITE_APPWRITE_COLLECTION_COMM_ID }}
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v2
