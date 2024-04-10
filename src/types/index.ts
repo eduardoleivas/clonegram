@@ -22,3 +22,17 @@ export type IUser = {
   url_img: string;
   bio: string;
 };
+
+export type INavLink = {
+  imgURL: string;
+  route: string;
+  label: string;
+};
+
+export type INewPost = {
+  id_creator: string;
+  caption: string;
+  file: File[];
+  location?: string;
+  tags?: string;
+};

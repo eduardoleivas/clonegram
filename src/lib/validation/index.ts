@@ -11,3 +11,10 @@ export const SigninValidation = z.object({
   email: z.string().email(),
   password: z.string().min(8, { message: 'Passwords must have at least 4 characters'}).max(30, { message: 'Passwords must have less than 30 characters'}),
 })
+
+export const PostValidation = z.object({
+  placeholder: z.string(),
+  file: z.custom<File[]>(),
+  location: z.string().max(160, {message: "Locations must have less than 160 characters"}),
+  tags: z.string().max(160, {message: "Tags must have less than 160 characters"}),
+})

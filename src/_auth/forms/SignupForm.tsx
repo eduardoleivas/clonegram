@@ -3,15 +3,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 
-import { Form, FormControl, FormField, FormItem,
-  FormLabel, FormMessage } from "@/components/ui/form";
+import Loader from "@/components/shared/Loader";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import Loader from "@/components/shared/Loader";
 import { useToast } from "@/components/ui/use-toast"
+import { Form, FormControl, FormField, FormItem,
+  FormLabel, FormMessage } from "@/components/ui/form";
+import { useUserContext } from "@/context/AuthContext";
 import { SignupValidation } from "@/lib/validation";
 import { useCreateUserAccount, useSignInAccount } from "@/lib/react-query/queriesAndMutations";
-import { useUserContext } from "@/context/AuthContext";
 //import { ToastViewport } from "@radix-ui/react-toast";
 
 const SignupForm = () => {
@@ -33,9 +33,15 @@ const SignupForm = () => {
   })
  
   async function onSubmit(values: z.infer<typeof SignupValidation>) {
+    toast({
+      title: "Signing up your account",
+      description: "Just a few more seconds...."
+    });
+
     const newUser = await createUserAccount(values);
     if(!newUser) {
       return toast({
+        variant: "destructive",
         title: "Sign up failed",
         description: "Please try again later."
       });
@@ -48,6 +54,7 @@ const SignupForm = () => {
 
     if(!session) {
       return toast({
+        variant: "destructive",
         title: "Sign in failed",
         description: "Please try again later."
       })
@@ -60,6 +67,7 @@ const SignupForm = () => {
       navigate("/");
     } else {
       return toast({
+        variant: "destructive",
         title: "Sign up failed.",
         description: "Please try again later."
       });
@@ -126,7 +134,7 @@ const SignupForm = () => {
               </FormItem>
             )}
           />
-          <Button type="submit" className="shad-button_primary">
+          <Button type="submit" className="shad-button_primary mt-2">
             {isCreatingUser? (
               <div className="flex-center gap-2">
                 <Loader /> Loading...

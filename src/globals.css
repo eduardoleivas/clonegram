@@ -48,8 +48,24 @@
     @apply text-[18px] font-bold leading-[140%];
   }
 
+  .body-semibold {
+    @apply text-[18px] font-semibold leading-[140%];
+  }
+
   .body-medium {
     @apply text-[18px] font-medium leading-[140%];
+  }
+
+  .small-large-bold {
+    @apply text-[17px] font-bold leading-[140%] tracking-tighter;
+  }
+
+  .small-large-semibold {
+    @apply text-[17px] font-semibold leading-[140%] tracking-tighter;
+  }
+
+  .small-large {
+    @apply text-[17px] font-normal leading-[140%];
   }
 
   .small-semibold {
@@ -66,6 +82,10 @@
 
   .subtle-semibold {
     @apply text-[12px] font-semibold leading-[140%];
+  }
+
+  .tiny-large {
+    @apply text-[12px] font-medium leading-[140%];
   }
 
   .tiny-medium {
@@ -197,7 +217,7 @@
   }
 
   .file_uploader-label {
-    @apply text-light-4 text-center small-regular w-full p-4 border-t border-t-dark-4;
+    @apply text-light-2 text-opacity-30 text-center small-regular w-full p-4 border-dashed border-t-2 border-t-dark-4 group-hover:border-t-dark-3;
   }
 
   .file_uploader-box {
@@ -219,11 +239,11 @@
 
   /* Left sidebar */
   .leftsidebar {
-    @apply hidden md:flex px-6 py-10 flex-col justify-between min-w-[270px] bg-dark-2;
+    @apply hidden md:flex px-6 2xl:py-10 sm:py-6 flex-col justify-between min-w-[270px] bg-dark-2;
   }
 
   .leftsidebar-link {
-    @apply rounded-lg base-medium hover:bg-primary-500 transition;
+    @apply rounded-lg base-medium 2xl:h-14 sm:h-12 2xl:p-4 sm:p-3 hover:bg-primary-500 transition;
   }
 
   /* Post Card */
@@ -258,20 +278,24 @@
   }
 
   .shad-input {
-    @apply h-12 bg-dark-4 border-none placeholder:text-light-4 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 !important;
+    @apply 2xl:h-12 sm:h-10 bg-dark-3 hover:bg-dark-4 border-none placeholder:text-light-2 placeholder:text-opacity-30 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 !important;
   }
 
   .shad-textarea {
-    @apply h-36 bg-dark-3 rounded-xl border-none focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 !important;
+    @apply h-36 bg-dark-3 hover:bg-dark-4 rounded-xl border-none focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 !important;
   }
 
   /* Button */
   .shad-button_primary {
-    @apply bg-primary-500 hover:bg-primary-500 text-light-1 flex gap-2 !important;
+    @apply bg-primary-500 hover:bg-primary-600 text-light-1 flex gap-2 !important;
   }
 
   .shad-button_dark_4 {
-    @apply h-12 bg-dark-4 px-5 text-light-1 flex gap-2 !important;
+    @apply bg-dark-4 px-5 text-light-1 flex gap-2 !important;
+  }
+
+  .shad-button_dark_4 {
+    @apply bg-dark-3 px-5 text-light-1 flex gap-2 !important;
   }
 
   .shad-button_ghost {
