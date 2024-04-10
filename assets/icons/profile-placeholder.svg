@@ -1,11 +1,32 @@
-<svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_1574_2829)">
-<ellipse cx="27.0338" cy="26.9662" rx="26.4937" ry="25.9537" fill="white"/>
-<path d="M27 0.00146484C12.0899 0.00146484 0 12.089 0 27.0003C0 41.9116 12.0887 53.9991 27 53.9991C41.9125 53.9991 54 41.9116 54 27.0003C54 12.089 41.9125 0.00146484 27 0.00146484ZM27 8.07443C31.9337 8.07443 35.9316 12.0735 35.9316 17.0048C35.9316 21.9373 31.9337 25.9353 27 25.9353C22.0687 25.9353 18.0708 21.9373 18.0708 17.0048C18.0708 12.0735 22.0687 8.07443 27 8.07443ZM26.9941 46.9401C22.0734 46.9401 17.5667 45.1481 14.0906 42.182C13.2438 41.4597 12.7552 40.4007 12.7552 39.2894C12.7552 34.2881 16.803 30.2854 21.8054 30.2854H32.197C37.2006 30.2854 41.2329 34.2881 41.2329 39.2894C41.2329 40.4018 40.7467 41.4586 39.8987 42.1808C36.4238 45.1481 31.9159 46.9401 26.9941 46.9401Z" fill="#877EFF"/>
-</g>
-<defs>
-<clipPath id="clip0_1574_2829">
-<rect width="54" height="54" fill="white"/>
-</clipPath>
-</defs>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="14.2874mm" height="14.2874mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 1428.74 1428.74"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil2 {fill:none}
+    .fil1 {fill:#29B4B9;fill-rule:nonzero}
+    .fil0 {fill:white;fill-rule:nonzero}
+   ]]>
+  </style>
+   <clipPath id="id0">
+    <path d="M-0 1428.74l1428.74 0 0 -1428.74 -1428.74 0 0 1428.74z"/>
+   </clipPath>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g>
+  </g>
+  <g style="clip-path:url(#id0)">
+   <g id="_1051186400">
+    <ellipse class="fil0" cx="715.26" cy="713.48" rx="700.98" ry="686.69"/>
+    <path class="fil1" d="M714.37 0.03c-394.5,0 -714.38,319.82 -714.38,714.35 0,394.53 319.85,714.34 714.38,714.34 394.56,0 714.38,-319.81 714.38,-714.34 0,-394.53 -319.82,-714.35 -714.38,-714.35zm0 213.6c130.54,0 236.32,105.81 236.32,236.28 0,130.51 -105.78,236.29 -236.32,236.29 -130.47,0 -236.25,-105.78 -236.25,-236.29 0,-130.47 105.78,-236.28 236.25,-236.28zm-0.16 1028.32c-130.19,0 -249.43,-47.41 -341.4,-125.89 -22.41,-19.11 -35.33,-47.13 -35.33,-76.53 0,-132.33 107.09,-238.23 239.45,-238.23l274.94 0c132.39,0 239.08,105.9 239.08,238.23 0,29.43 -12.87,57.39 -35.3,76.5 -91.94,78.51 -211.21,125.92 -341.44,125.92z"/>
+   </g>
+  </g>
+  <polygon class="fil2" points="-0,1428.74 1428.74,1428.74 1428.74,0 -0,0 "/>
+ </g>
 </svg>
