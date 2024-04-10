@@ -1,3 +1,19 @@
-<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.66675 7.61413C1.66675 11.6666 5.01627 13.8261 7.46819 15.7589C8.33341 16.441 9.16675 17.0832 10.0001 17.0832C10.8334 17.0832 11.6667 16.441 12.532 15.7589C14.9839 13.8261 18.3334 11.6666 18.3334 7.61413C18.3334 3.56168 13.7499 0.687765 10.0001 4.58374C6.25021 0.687765 1.66675 3.56168 1.66675 7.61413Z" fill="#F14D4D"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="4.4097mm" height="3.7958mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 440.98 379.59"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:#29B4B9;fill-rule:nonzero}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path class="fil0" d="M-0 129.04c0,107.23 88.62,164.36 153.49,215.5 22.89,18.05 44.94,35.04 66.99,35.04 22.05,0 44.1,-16.99 66.99,-35.04 64.88,-51.14 153.5,-108.27 153.5,-215.5 0,-107.22 -121.27,-183.26 -220.5,-80.18 -99.21,-103.08 -220.48,-27.04 -220.48,80.18z"/>
+ </g>
 </svg>

@@ -1,5 +1,21 @@
-<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M18.9584 5.8335C18.9584 6.17867 18.6786 6.4585 18.3334 6.4585L1.66671 6.4585C1.32153 6.4585 1.04171 6.17867 1.04171 5.8335C1.04171 5.48832 1.32153 5.2085 1.66671 5.2085L18.3334 5.2085C18.6786 5.2085 18.9584 5.48832 18.9584 5.8335Z" fill="#5C5C7B"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M16.4584 10C16.4584 10.3452 16.1786 10.625 15.8334 10.625L4.16671 10.625C3.82153 10.625 3.54171 10.3452 3.54171 10C3.54171 9.65482 3.82153 9.375 4.16671 9.375L15.8334 9.375C16.1786 9.375 16.4584 9.65482 16.4584 10Z" fill="#5C5C7B"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M13.9584 14.1665C13.9584 14.5117 13.6786 14.7915 13.3334 14.7915L6.66671 14.7915C6.32153 14.7915 6.04171 14.5117 6.04171 14.1665C6.04171 13.8213 6.32153 13.5415 6.66671 13.5415H13.3334C13.6786 13.5415 13.9584 13.8213 13.9584 14.1665Z" fill="#5C5C7B"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="4.7404mm" height="2.5356mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 474.04 253.56"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:#29B4B9}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path class="fil0" d="M474.04 16.54c0,9.13 -7.4,16.54 -16.53,16.54l-440.97 0c-9.14,0 -16.54,-7.41 -16.54,-16.54 0,-9.13 7.4,-16.54 16.54,-16.54l440.97 0c9.13,0 16.53,7.41 16.53,16.54z"/>
+  <path class="fil0" d="M407.9 126.78c0,9.13 -7.4,16.54 -16.54,16.54l-308.68 0c-9.13,0 -16.54,-7.41 -16.54,-16.54 0,-9.13 7.41,-16.54 16.54,-16.54l308.68 0c9.14,0 16.54,7.41 16.54,16.54z"/>
+  <path class="fil0" d="M341.75 237.02c0,9.13 -7.4,16.54 -16.53,16.54l-176.39 0c-9.14,0 -16.54,-7.41 -16.54,-16.54 0,-9.13 7.4,-16.54 16.54,-16.54l176.39 0c9.13,0 16.53,7.41 16.53,16.54z"/>
+ </g>
 </svg>
