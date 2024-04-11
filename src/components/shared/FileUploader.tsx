@@ -11,9 +11,12 @@ type FileUploaderProps={
 const FileUploader = ({ fieldChange, mediaUrl }: FileUploaderProps) => {
   const [file, setfile] = useState<File[]>([]);
   const [fileUrl, setfileUrl] = useState("");
-  
-  const placeholder = mediaUrl;
-  placeholder;
+  const [imgLoad, setImgLoad] = useState(false)
+
+  if(mediaUrl && !imgLoad) {
+    setfileUrl(mediaUrl);
+    setImgLoad(true);
+  }
 
   const onDrop = useCallback((acceptedFiles: FileWithPath[]) => {
     setfile(acceptedFiles);
@@ -40,7 +43,7 @@ const FileUploader = ({ fieldChange, mediaUrl }: FileUploaderProps) => {
                 className="file_uploader-img"
               />
             </div>
-            <p className="file_uploader-label">Click or drag photo to replace</p>
+            <p className="file_uploader-label">Click or drop photo to replace</p>
           </>
         ) : (
           <div className="file_uploader-box">
@@ -50,8 +53,8 @@ const FileUploader = ({ fieldChange, mediaUrl }: FileUploaderProps) => {
               height={77}
               alt="file-upload"
             />
-            <h3 className="base-medium text-light-2 mb-2 mt-6">Drag your photo here</h3>
-            <p className="small-regular text-light-4 mb-6">.SVG, .PNG, .JPG</p>
+            <h3 className="base-medium text-light-2 mb-2 mt-6">Drag and drop your photo here</h3>
+            <p className="small-regular text-light-4 mb-6">Max filesize up to 2Mb</p>
 
             <Button className="shad-button_dark_4 group-hover:shad-button_dark_3">
               Select from computer

@@ -15,26 +15,33 @@ import { Form, FormControl, FormField, FormItem,
   FormLabel, FormMessage, } from "@/components/ui/form";
 import { useUserContext } from "@/context/AuthContext";
 import { PostValidation } from "@/lib/validation";
-import { useCreatePost } from "@/lib/react-query/queriesAndMutations";
+import { useCreatePost, useUpdatePost } from "@/lib/react-query/queriesAndMutations";
 
 type PostFormProps = {
   post?: Models.Document;
+  action: "create" | "update";
 }
 
-const PostForm = ({ post }: PostFormProps) => {
+const PostForm = ({ post, action }: PostFormProps) => {
   const [content, setContent] = useState("");
-  const MAX = 280;
-
+  const [captionLoad, setCaptionLoad] = useState(false);
+  const { mutateAsync: createPost, isPending: isLoadingCreate } = useCreatePost();
+  const { mutateAsync: updatePost, isPending: isLoadingUpdate } = useUpdatePost();
   const { user } = useUserContext();
   const { toast } = useToast();
   const navigate = useNavigate();
-  const { mutateAsync: createPost, isPending: isLoadingCreate } = useCreatePost();
-
+  const MAX = 280;
+ 
   const recalculate = (e: any) => {
     setContent((e.target as HTMLTextAreaElement).value);
   }
 
   useEffect(() => {
+    if(action === "update" && !captionLoad) {
+      setContent(post?.caption);
+      setCaptionLoad(true);
+    }
+
     const counter = document.getElementById("counter");
     if((content.length) < (MAX/2)) {
       (counter as HTMLParagraphElement).className = "small-regular text-light-4 text-right"
@@ -50,42 +57,78 @@ const PostForm = ({ post }: PostFormProps) => {
     defaultValues: {
       placeholder: "placeholder",
       file: [],
-      location: post ? post?.location: "",
-      tags: post ? post?.tags.join(','): "",
+      location: post ? post?.location : "",
+      tags: post ? post?.tag.join(','): "",
     },
   })
 
   async function onSubmit(values: z.infer<typeof PostValidation>) {
-    toast({
-      title:"Creating your post",
-      description:"Just a few more seconds...",
-    })
-    if(content.length > MAX) {
+    if(!captionLoad) {
+      toast({
+        title:"Creating your post",
+        description:"Just a few more seconds...",
+      })
+      if(content.length > MAX) {
+          toast({
+            variant: "destructive",
+            title:"Post creation failed",
+            description:"Captions must have less than 280 characters",
+          })
+      } else {
+        const newPost = await createPost({
+          caption: content,
+          file: values.file,
+          location: values.location,
+          tags: values.tags,
+          id_creator: user.id_user,
+       })
+  
+        if (!newPost) {
+          toast({
+            title: "Post creation failed",
+            description: "Please try again later",
+          })
+        }
+        toast({
+          title:"Post successfully created",
+          description:"Congratulations!",
+        })
+        navigate('/');
+      }
+
+    } else {
+      toast({
+        title:"Updating your post",
+        description:"Just a few more seconds...",
+      })
+      if(content.length > MAX) {
         toast({
           variant: "destructive",
-          title:"Post creation failed",
+          title:"Post update failed",
           description:"Captions must have less than 280 characters",
         })
-    } else {
-      const newPost = await createPost({
-        caption: content,
-        file: values.file,
-        location: values.location,
-        tags: values.tags,
-        id_creator: user.id_user,
-     })
-
-      if (!newPost) {
-        toast({
-          title: "Post creation failed",
-          description: "Please try again later",
-        })
-      }
-      toast({
-        title:"Post successfully created",
-        description:"Congratulations!",
+      } else {
+        const updatedPost = await updatePost({
+          id_post: post?.$id,
+          caption: content,
+          file: values.file,
+          location: values.location,
+          tags: values.tags,
+          id_creator: user.id_user,
       })
-      navigate('/');
+
+        if (!updatedPost) {
+          toast({
+            title: "Post update failed",
+            description: "Please try again later",
+          })
+        }
+        toast({
+          title:"Post successfully updated",
+          description:"Congratulations!",
+        })
+        navigate(`/posts/${post?.$id}`);
+      }
     }
   }
 
@@ -117,7 +160,7 @@ const PostForm = ({ post }: PostFormProps) => {
               <FormControl>
                 <FileUploader 
                   fieldChange={field.onChange}
-                  mediaUrl={post?.imageUrl}
+                  mediaUrl={post?.url_img}
                 />
               </FormControl>
               <FormMessage  className="shad-form_message" />
@@ -156,8 +199,8 @@ const PostForm = ({ post }: PostFormProps) => {
         />
         <div className="flex gap-4 items-center justify-end">
           <Button type="button" className="shad-button_dark_4">Cancel</Button>
-          <Button type="submit" className="shad-button_primary whitespace-nowrap">
-            {isLoadingCreate? (
+          <Button type="submit" className="shad-button_primary whitespace-nowrap" disabled={isLoadingCreate || isLoadingUpdate}>
+            {isLoadingCreate || isLoadingUpdate ? (
               <div className="flex-center gap-2">
                 <Loader /> Posting...
               </div>
