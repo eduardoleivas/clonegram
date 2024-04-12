@@ -15,7 +15,7 @@ const PostStats = ({ post, id_user }: PostStatsProps) => {
   const [likes, setLikes] = useState(likesList);
   const [isSaved, setIsSaved] = useState(false);
 
-  const { mutate: likePost } = useLikePost();
+  const { mutate: likePost, isPending: isLikingPost } = useLikePost();
   const { mutate: savePost, isPending: isSavingPost } = useSavePost();
   const { mutate: unsavePost, isPending: isUnsavingPost } = useUnsavePost();
 
@@ -39,6 +39,7 @@ const PostStats = ({ post, id_user }: PostStatsProps) => {
 
     setLikes(newLikes);
     likePost({ id_post: post?.$id || "", likesArray: newLikes});
+    
   }
 
   const handleSavePost = (e: React.MouseEvent) => {
@@ -47,13 +48,13 @@ const PostStats = ({ post, id_user }: PostStatsProps) => {
     if(savedPostRecord) {
       setIsSaved(false);
       unsavePost(savedPostRecord.$id);
-      console.log("chegou aqui 1");
     } else {
       setIsSaved(true);
       savePost({id_post: post?.$id || "", id_user});
-      console.log("chegou aqui 2");
     }
   }
+
+  if(isLikingPost) return <Loader />
 
   return (
     <div className="flex justify-between items-center z-20">

@@ -52,7 +52,7 @@ const PostDetails = () => {
               </div>
               </Link>
               <div className="flex-center gap-1">
-                <Link to={`/update-post/${post?.$id}`}
+                <Link to={`/edit-post/${post?.$id}`}
                   className={`${user.id_user !== post?.id_creator.$id} && "hidden"`}>
                   <img 
                     src="/clonegram/assets/icons/edit.svg"

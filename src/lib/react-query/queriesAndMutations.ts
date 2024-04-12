@@ -2,6 +2,7 @@ import { useInfiniteQuery, useMutation, useQuery, useQueryClient } from '@tansta
 import { INewPost, INewUser, IUpdatePost } from '@/types';
 import { createPost, createUserAccount, deletePost, getCurrentUser, getInfinitePosts, getPostById, getRecentPosts, likePost, savePost, searchPosts, signInAccount, signOutAccount, unsavePost, updatePost } from '../appwrite/api';
 import { QUERY_KEYS } from './queryKeys';
+import { queryClient } from './QueryProvider';
 
 export const useCreateUserAccount = () => {
   return useMutation({
@@ -31,7 +32,6 @@ export const useGetCurrentUser = () => {
 }
 
 export const useCreatePost = () => {
-  const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (post: INewPost) => createPost(post),
     onSuccess: () => {
@@ -43,7 +43,6 @@ export const useCreatePost = () => {
 }
 
 export const useUpdatePost = () => {
-  const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (post: IUpdatePost) => updatePost(post),
     onSuccess: () => {
@@ -55,8 +54,6 @@ export const useUpdatePost = () => {
 }
 
 export const useDeletePost = () => {
-  const queryClient = useQueryClient();
-
   return useMutation({
     mutationFn: ({ id_post, id_img }: { id_post: string, id_img: string }) => deletePost(id_post, id_img),
     onSuccess: () => {
@@ -68,7 +65,6 @@ export const useDeletePost = () => {
 }
 
 export const useGetPostById = (id_post: string) => {
-  const queryClient = useQueryClient();
   queryClient.invalidateQueries({
     queryKey: [QUERY_KEYS.GET_POST_BY_ID]
   })
@@ -89,8 +85,6 @@ export const useGetRecentPosts = () => {
 }
 
 export const useLikePost = () => {
-  const queryClient = useQueryClient();
-
   return useMutation({
     mutationFn: ({ id_post, likesArray }: { id_post: string; likesArray: string[] }) => likePost(id_post, likesArray),
     onSuccess: (data) => {
@@ -111,8 +105,6 @@ export const useLikePost = () => {
 }
 
 export const useSavePost = () => {
-  const queryClient = useQueryClient();
-
   return useMutation({
     mutationFn: ({ id_post, id_user }: { id_post: string; id_user: string }) => savePost(id_post, id_user),
     onSuccess: () => {
@@ -130,8 +122,6 @@ export const useSavePost = () => {
 }
 
 export const useUnsavePost = () => {
-  const queryClient = useQueryClient();
-
   return useMutation({
     mutationFn: (id_savedRecord: string) => unsavePost(id_savedRecord),
     onSuccess: () => {
@@ -154,12 +144,12 @@ export const useGetPosts = () => {
     queryFn: getInfinitePosts,
     initialPageParam: undefined,
     getNextPageParam: (lastPage: any) => {
-      // If there's no data, there are no more pages.
+      //NO DATA == NO MORE PAGES
       if (lastPage && lastPage.documents.length === 0) {
         return null;
       }
 
-      // Use the $id of the last document as the cursor.
+      //LAST DOCUMENT ID (NO REPEATING)
       const lastId = lastPage.documents[lastPage.documents.length - 1].$id;
       return lastId;
     },
