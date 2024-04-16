@@ -163,8 +163,8 @@ export async function updateUser(user: IUpdateUser) {
       {
         name: user.name,
         bio: user.bio,
-        imageUrl: image.url_img,
-        imageId: image.id_img,
+        url_img: image.url_img,
+        id_img: image.id_img,
       }
     );
 
