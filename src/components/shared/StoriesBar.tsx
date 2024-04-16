@@ -12,8 +12,10 @@ const StoriesBar = () => {
   if(isLoadingStories) return <Loader />
 
   return (
-    <div className="flex flex-row gap-3 w-full max-w-[80px] custom-scrollbar">
-      <StoryCard user={activeUser} />
+    <div className="flex flex-row gap-3 w-full min-h-[85px] items-center overflow-y-hidden overflow-x-scroll custom-scrollbar">
+      <div className="min-w-fit ml-2">
+        <StoryCard user={activeUser} />
+      </div>
       {posts?.documents.map((post: Models.Document) =>(
         <StoryCard post={post} />
       ))}
