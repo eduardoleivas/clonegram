@@ -17,7 +17,7 @@ const StoryCard = ({ post, user }: StoryCardProps) => {
     }
 
     return (
-      <Link to={`/posts/${post?.$id}`} className="flex flex-col items-center gap-1">
+      <Link to={`/posts/${post?.$id}`} className="flex flex-col items-center gap-1 w-[60px]">
         <div className="relative">
           <img
             className="rounded-full border-2 border-dark-4 2xl:w-[56px] sm:w-[40px] 2xl:h-[56px] sm:h-[40px] z-[1000]"
@@ -32,7 +32,7 @@ const StoryCard = ({ post, user }: StoryCardProps) => {
     )
   } else {
     return (
-      <Link to={`/create-post`} className="flex flex-col items-center gap-1">
+      <Link to={`/create-post`} className="flex flex-col items-center gap-1 w-[60px]">
         <div className="relative">
           <img
             className="rounded-full border-2 border-dark-4 2xl:w-[56px] sm:w-[40px] 2xl:h-[56px] sm:h-[40px] z-[1000]"
@@ -40,7 +40,7 @@ const StoryCard = ({ post, user }: StoryCardProps) => {
             alt="user-profile-icon"
           />
           <img
-            className="absolute sm:w-[15px] sm:h-[15px] sm:top-7 sm:right-[-5px] 2xl:w-[24px] 2xl:h-[24px] 2xl:top-9"
+            className="absolute w-[15px] h-[15px] top-7 right-[-5px] 2xl:w-[24px] 2xl:h-[24px] 2xl:top-9"
             src="/clonegram/assets/icons/add-post.svg"
             alt="add-post-icon"
           />
