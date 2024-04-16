@@ -25,10 +25,10 @@ const CreatorCard = ({ user }: CreatorCardProps) => {
         />
       <div onClick={handleCreatorProfileVisit}>
         <p className="2xl:base-regular sm:small-regular text-center hover:underline cursor-pointer">@{user.username}</p>
-        <p className="tiny-medium text-light-3 text-center">Followed by @{activeUser.username}</p>
+        <p className="tiny-medium text-light-3 text-center">Followed by @ed_pinheiro</p>
       </div>
       <Button className="shad-button_primary py-1 px-4">
-        <p className="2xl:base-regular sm:tiny-large">Follow</p>
+        <p className="2xl:base-regular sm:tiny-large">Visit</p>
       </Button>
   </div>
   )

@@ -41,7 +41,7 @@ const StoryCard = ({ post, user }: StoryCardProps) => {
           />
           <img
             className="absolute sm:w-[15px] sm:h-[15px] sm:top-7 sm:right-[-5px] 2xl:w-[24px] 2xl:h-[24px] 2xl:top-9"
-            src="clonegram/assets/icons/add-post.svg"
+            src="/clonegram/assets/icons/add-post.svg"
             alt="add-post-icon"
           />
           <a className="border-bg rounded-full 2xl:w-[56px] 2xl:h-[56px] sm:w-[40px] sm:h-[40px] top-0 left-0"/>
