@@ -88,7 +88,7 @@ const PostDetails = () => {
               </div>
             </div>
             <div className="flex flex-col flex-1 max-w-full small-medium 2xl:base-regular break-all">
-              <p className="mr-2 ">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+              <p className="mr-2 ">{post?.caption}</p>
               <ul className="flex gap-1">
                 {post?.tag.map((tag: string) => (
                   <li key={tag} className="text-light-3">
