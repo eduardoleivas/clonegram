@@ -12,7 +12,7 @@ const StoriesBar = () => {
   if(isLoadingStories) return <Loader />
 
   return (
-    <div className="flex flex-row gap-3 w-full">
+    <div className="flex flex-row gap-3 w-full max-w-[80px] custom-scrollbar">
       <StoryCard user={activeUser} />
       {posts?.documents.map((post: Models.Document) =>(
         <StoryCard post={post} />
