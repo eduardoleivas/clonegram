@@ -56,6 +56,7 @@ Clonegram comes up with a complete pack of amazing social media features to prov
 ```
 $PROJECT_ROOT
 ├── index.html          # Entry point
+├── schema.sql          # Database SQL Model
 ├── public
 │   └── assets
 │       ├── icons
