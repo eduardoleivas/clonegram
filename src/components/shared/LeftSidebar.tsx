@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
-import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom'
-import { useUserContext } from '@/context/AuthContext';
-import { useSignOutAccount } from '@/lib/react-query/queriesAndMutations';
+import { Link, NavLink, useNavigate, useLocation, redirect } from 'react-router-dom'
+
 import { INavLink } from '@/types';
 import { sidebarLinks } from '@/constants';
 import { Button } from '../ui/button';
 import { useToast } from '../ui/use-toast';
+import { useUserContext } from '@/context/AuthContext';
+import { useSignOutAccount } from '@/lib/react-query/queriesAndMutations';
 
 const LeftSidebar = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const LeftSidebar = () => {
 
   useEffect(() => {
     if(isSuccess) navigate(0);
-  }, [isSuccess])
+  }, [isSuccess]);
 
   return (
     <nav className="leftsidebar">
@@ -31,7 +32,7 @@ const LeftSidebar = () => {
         </Link>
 
         <Link to={`/profile/${user.id_user}`}
-        className="flex gap-3 items-center">
+        className="flex gap-3 items-start">
           <img
             src={user.url_img || "/clonegram/assets/icons/profile-placeholder.svg"}
             alt="profile"
@@ -56,7 +57,7 @@ const LeftSidebar = () => {
               className={`leftsidebar-link group ${isActive && "bg-primary-500"}`}>
                 <NavLink
                 to={link.route}
-                className="flex gap-4 items-center small-medium" >
+                className="flex gap-4 items-center small-medium">
                   <img
                   src={link.imgURL}
                   alt={link.label}

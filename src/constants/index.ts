@@ -25,6 +25,7 @@ export const sidebarLinks = [
     label: "Create Post",
   },
 ];
+
 export const bottombarLinks = [
   {
     imgURL: "/clonegram/assets/icons/home.svg",

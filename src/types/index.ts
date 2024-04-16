@@ -23,6 +23,15 @@ export type IUser = {
   bio: string;
 };
 
+export type IUpdateUser = {
+  id_user: string;
+  name: string;
+  bio: string;
+  id_img: string;
+  url_img: string;
+  file: File[];
+};
+
 export type INavLink = {
   imgURL: string;
   route: string;
@@ -45,3 +54,9 @@ export type IUpdatePost = {
   location?: string;
   tags?: string;
 };
+
+export type IComment = {
+  text: string;
+  id_user?: string;
+  id_post?: string;
+}

@@ -1,18 +1,18 @@
 import { z } from "zod";
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { Models } from "appwrite";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { Models } from "appwrite";
 
-import Loader from "../shared/Loader";
-import FileUploader from "../shared/FileUploader";
 import { useToast } from "../ui/use-toast";
 import { Textarea } from "../ui/textarea";
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormField, FormItem,
   FormLabel, FormMessage, } from "@/components/ui/form";
+import Loader from "../shared/Loader";
+import FileUploader from "../shared/FileUploader";
 import { useUserContext } from "@/context/AuthContext";
 import { PostValidation } from "@/lib/validation";
 import { useCreatePost, useUpdatePost } from "@/lib/react-query/queriesAndMutations";
@@ -30,7 +30,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
   const { user } = useUserContext();
   const { toast } = useToast();
   const navigate = useNavigate();
-  const MAX = 280;
+  const MAX = 160;
  
   const recalculate = (e: any) => {
     setContent((e.target as HTMLTextAreaElement).value);

@@ -1,18 +1,23 @@
 import { Link, useParams } from "react-router-dom";
-import { useGetPostById } from "@/lib/react-query/queriesAndMutations"
-import Loader from "@/components/shared/Loader";
-import { multiFormatDateString } from "@/lib/utils";
-import { useUserContext } from "@/context/AuthContext";
+
 import { Button } from "@/components/ui/button";
-import { useToast } from '@/components/ui/use-toast';
 import { ToastAction } from "@/components/ui/toast";
+import { useToast } from '@/components/ui/use-toast';
+import CommentBox from "@/components/shared/CommentBox";
+import CommentInput from "@/components/shared/CommentInput";
+import Loader from "@/components/shared/Loader";
 import PostStats from "@/components/shared/PostStats";
+import { useUserContext } from "@/context/AuthContext";
+import { useGetPostById } from "@/lib/react-query/queriesAndMutations";
+import { multiFormatDateString } from "@/lib/utils";
 
 const PostDetails = () => {
   const { id } = useParams();
   const { user } = useUserContext();
   const { toast } = useToast();
   const { data: post, isPending } = useGetPostById(id || "");
+  
+  if(isPending || (id != post?.$id)) return <Loader />;
 
   const handleDeletePost = () => {
     toast({
@@ -24,6 +29,14 @@ const PostDetails = () => {
 
   }
 
+  const handleOpenImage = () => {
+    return (
+      <div className="absolute w-screen h-screen bg-light-1 z-[20000]">
+        aaa
+      </div>
+    )
+  }
+
   return (
     <div className="post_details-container">
       {isPending ? <Loader /> : (
@@ -31,8 +44,8 @@ const PostDetails = () => {
           <img
             src={post?.url_img}
             alt="post-image"
-            className="post_details-img"
-            onClick={() =>{}}
+            className="post_details-img cursor-pointer"
+            onClick={handleOpenImage}
           />
 
           <div className="post_details-info">
@@ -45,7 +58,7 @@ const PostDetails = () => {
                 />
               <div className="flex flex-col">
                 <p className="base-medium lg:body-bold text-light-1"> {post?.id_creator?.name}</p>
-                <div className="flex-center gap-2 text-light-3">
+                <div className="flex flex-1 align-center justify-start gap-2 text-light-3">
                   <p className="subtle-semibold lg:small-regular"> {multiFormatDateString(post?.$createdAt)}</p> -
                   <p className="subtle-semibold lg:small-regular">{post?.location}</p>
                 </div>
@@ -74,12 +87,9 @@ const PostDetails = () => {
               </Button>
               </div>
             </div>
-
-            <hr className="border w-full border-dark-4/80"></hr>
-
-            <div className="flex flex-col flex-1 w-full small-medium 2xl:base-regular">
-              <p>{post?.caption}</p>
-              <ul className="flex gap-1 mt-2">
+            <div className="flex flex-col flex-1 max-w-full small-medium 2xl:base-regular break-all">
+              <p className="mr-2 ">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+              <ul className="flex gap-1">
                 {post?.tag.map((tag: string) => (
                   <li key={tag} className="text-light-3">
                     #{tag}
@@ -87,8 +97,15 @@ const PostDetails = () => {
                 ))}
               </ul>
             </div>
-            <div className="w-full">
-                <PostStats post={post} id_user={user.id_user} />
+            <hr className="border w-full border-dark-4/80"></hr>
+
+            
+            <div className="w-full h-full">
+              <CommentBox />
+            </div>
+            <div className="flex flex-1 flex-col w-full gap-2">
+              <PostStats post={post} id_user={user.id_user} />
+              <CommentInput post={post}/>
             </div>
           </div>
         </div>

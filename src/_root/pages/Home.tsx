@@ -1,7 +1,10 @@
-import Loader from "@/components/shared/Loader";
 import { Models } from "appwrite";
-import { useGetRecentPosts } from "@/lib/react-query/queriesAndMutations";
+
+import Loader from "@/components/shared/Loader";
 import PostCard from "@/components/shared/PostCard";
+import StoriesBar from "@/components/shared/StoriesBar";
+import TopCreators from "@/components/shared/TopCreators";
+import { useGetRecentPosts } from "@/lib/react-query/queriesAndMutations";
 
 const Home = () => {
   const { data: posts, isPending: isPostLoading } = useGetRecentPosts();
@@ -9,12 +12,13 @@ const Home = () => {
   return (
     <div className="flex flex-1">
       <div className="home-container">
+      <StoriesBar />
         <div className="home-posts">
           <h2 className="h3-bold md:h2-bold text-left w-full">Home Feed</h2>
           {isPostLoading && !posts ? (
             <Loader />
           ) : (
-            <ul className="flex flex-col flex-1 gap-9 w-full">
+            <ul className="flex flex-col flex-1 gap-9 w-full justify-center items-center">
               {posts?.documents.map((post: Models.Document) => (
                 <PostCard post={post} />
               ))}
@@ -22,6 +26,7 @@ const Home = () => {
           )}
         </div>
       </div>
+      <TopCreators />
     </div>
   )
 }
