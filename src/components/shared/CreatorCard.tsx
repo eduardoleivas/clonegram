@@ -2,14 +2,12 @@ import { Models } from "appwrite";
 import { useNavigate } from "react-router-dom";
 
 import { Button } from "../ui/button"
-import { useUserContext } from "@/context/AuthContext";
 
 type CreatorCardProps = {
   user: Models.Document,
 }
 
 const CreatorCard = ({ user }: CreatorCardProps) => {
-  const { user: activeUser } = useUserContext();
   const navigate = useNavigate();
 
   const handleCreatorProfileVisit = () => {
