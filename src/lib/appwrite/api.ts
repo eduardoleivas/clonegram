@@ -132,29 +132,30 @@ export async function getUserById(id_user: string) {
 }
 
 export async function updateUser(user: IUpdateUser) {
+  const hasFileToUpdate = user.file.length > 0;
   try {
-    //GET USER BEFORE UPDATE
-    const oldUser = await getUserById(user.id_user);
-    let updImgUrl = oldUser?.url_img;
-    let updImgId = oldUser?.id_img;
 
-    if(user.file.length > 0) {
-      //UPLOAD IMAGE TO APPWRITE STORAGE
+    //BACKUP ACTUAL USER IMAGE
+    let image = {
+      url_img: user.url_img,
+      id_img: user.id_img,
+    };
+
+    if (hasFileToUpdate) {
+      //UPLOAD FILE TO APPWRITE STORAGE
       const uploadedFile = await uploadFile(user.file[0]);
-      if(!uploadedFile) throw Error;
+      if (!uploadedFile) throw Error;
 
-      //GET IMG URL FROM APPWRITE STORAGE
-      const fileURL = getFilePreview(uploadedFile.$id);
-      if(!fileURL) {
-        deleteFile(uploadedFile.$id);
+      const fileUrl= getFilePreview(uploadedFile.$id)?.toString();
+      if (!fileUrl) {
+        await deleteFile(uploadedFile.$id);
         throw Error;
       }
 
-      updImgUrl = fileURL;
-      updImgId = uploadedFile.$id;
+      image = { ...image, url_img: fileUrl, id_img: uploadedFile.$id };
     }
 
-    //SAVE UPDATED USER TO DATABASE
+    //UPDATE USER PROFILE
     const updatedUser = await databases.updateDocument(
       appwriteConfig.databaseId,
       appwriteConfig.userCollectionId,
@@ -162,22 +163,25 @@ export async function updateUser(user: IUpdateUser) {
       {
         name: user.name,
         bio: user.bio,
-        url_img: updImgUrl,
-        id_img: updImgId,
+        imageUrl: image.url_img,
+        imageId: image.id_img,
       }
     );
 
-    if(!updatedUser) {
-      await deleteFile(updImgId);
-      throw Error;
-    } else if(updatedUser && user.file.length > 0) {
-      await deleteFile(updatedUser?.id_img);
+    if (!updatedUser) {
+      if (hasFileToUpdate) {
+        await deleteFile(image.id_img);
+      }
       throw Error;
     }
-      
+
+    if (user.url_img && hasFileToUpdate) {
+      await deleteFile(user.url_img);
+    }
+
     return updatedUser;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 }
 
