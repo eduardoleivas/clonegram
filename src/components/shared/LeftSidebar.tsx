@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link, NavLink, useNavigate, useLocation, redirect } from 'react-router-dom'
+import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom'
 
 import { INavLink } from '@/types';
 import { sidebarLinks } from '@/constants';

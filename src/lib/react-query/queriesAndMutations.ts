@@ -159,7 +159,7 @@ export const useLikePost = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: ({ id_post, likesArray }: { id_post: string; likesArray: string[] }) => likePost(id_post, likesArray),
-    onSuccess: (data) => {
+    onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: [QUERY_KEYS.GET_POST_BY_ID],
         refetchType: "all",

@@ -29,7 +29,7 @@ const CommentInput = ({ post }: CommentInputProps) => {
     }
   }
 
-  const handleClickSubmit = (e: React.MouseEvent) => {
+  const handleClickSubmit = () => {
     let input = document.getElementById("comment");
     if((input as HTMLInputElement).value != "") {
       postComment((input as HTMLInputElement).value);
