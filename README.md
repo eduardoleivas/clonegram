@@ -19,7 +19,7 @@ Clonegram is a modern **React + Typescript** based social media web app, heavily
 
 ![poster_clonegram](https://raw.githubusercontent.com/eduardoleivas/clonegram/main/public/assets/images/bg-readme.jpg)
 
-Try the App*: [Clonegram](https://snapgraam.vercel.app/)
+Try the App*: [Clonegram](https://eduardoleivas.github.io/clonegram/)
 >[!NOTE]
 >*If the page seems stuck on a loading status, refresh the page and it will work properly. This issue is caused due to the free membership plan's request limitations
 
